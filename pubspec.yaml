@@ -51,6 +51,7 @@ dependencies:
 
 
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -73,7 +74,14 @@ dev_dependencies:
   share:
   flutter_map_marker_cluster:
   background_fetch: ^1.1.5
+  permission_handler:
 
+  flutter_background_service:
+  workmanager:
+  image_picker:
+  rxdart:
+
+  flutter_local_notifications:
 
 
 

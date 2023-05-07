@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.flutterassettracer.app-mergeDebugResources-26:/values-iw/values-iw.xml",
+            "outputFile": "com.example.flutterassettracer.app-mergeDebugResources-32:/values-iw/values-iw.xml",
             "map": [
                 {
                     "source": "C:\\Users\\hario\\.gradle\\caches\\transforms-3\\ff69d175c49cfa9394e8ca832c98affc\\transformed\\jetified-play-services-basement-18.1.0\\res\\values-iw\\values.xml",
@@ -18,6 +18,23 @@
                         "startOffsets": "3726",
                         "endColumns": "117",
                         "endOffsets": "3839"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\hario\\.gradle\\caches\\transforms-3\\beb05c6d16f102e70ef856749431a27b\\transformed\\core-1.9.0\\res\\values-iw\\values-iw.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "52",
+                        "startColumns": "4",
+                        "startOffsets": "5313",
+                        "endColumns": "100",
+                        "endOffsets": "5409"
                     }
                 },
                 {
@@ -52,23 +69,6 @@
                         "startOffsets": "2761,2864,3018,3143,3247,3386,3511,3623,3844,3980,4084,4229,4352,4486,4631,4691,4751",
                         "endColumns": "102,153,124,103,138,124,111,102,135,103,144,122,133,144,59,59,80",
                         "endOffsets": "2859,3013,3138,3242,3381,3506,3618,3721,3975,4079,4224,4347,4481,4626,4686,4746,4827"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\hario\\.gradle\\caches\\transforms-3\\32a751ba0e14373defd8f9c75fa84aab\\transformed\\core-1.7.0\\res\\values-iw\\values-iw.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "52",
-                        "startColumns": "4",
-                        "startOffsets": "5313",
-                        "endColumns": "100",
-                        "endOffsets": "5409"
                     }
                 },
                 {

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.flutterassettracer.app-mergeReleaseResources-26:/values-ms/values-ms.xml",
+            "outputFile": "com.example.flutterassettracer.app-mergeReleaseResources-32:/values-ms/values-ms.xml",
             "map": [
                 {
                     "source": "C:\\Users\\hario\\.gradle\\caches\\transforms-3\\eacc524cc2d6be73e061a802198eb2e2\\transformed\\appcompat-1.4.1\\res\\values-ms\\values-ms.xml",
@@ -38,23 +38,6 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\hario\\.gradle\\caches\\transforms-3\\32a751ba0e14373defd8f9c75fa84aab\\transformed\\core-1.7.0\\res\\values-ms\\values-ms.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "52",
-                        "startColumns": "4",
-                        "startOffsets": "5663",
-                        "endColumns": "100",
-                        "endOffsets": "5759"
-                    }
-                },
-                {
                     "source": "C:\\Users\\hario\\.gradle\\caches\\transforms-3\\ff69d175c49cfa9394e8ca832c98affc\\transformed\\jetified-play-services-basement-18.1.0\\res\\values-ms\\values.xml",
                     "from": {
                         "startLines": "4",
@@ -86,6 +69,23 @@
                         "startOffsets": "2800,2906,3079,3209,3315,3487,3619,3739,3992,4177,4286,4461,4596,4767,4942,5009,5073",
                         "endColumns": "105,172,129,105,171,131,119,106,184,108,174,134,170,174,66,63,82",
                         "endOffsets": "2901,3074,3204,3310,3482,3614,3734,3841,4172,4281,4456,4591,4762,4937,5004,5068,5151"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\hario\\.gradle\\caches\\transforms-3\\beb05c6d16f102e70ef856749431a27b\\transformed\\core-1.9.0\\res\\values-ms\\values-ms.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "52",
+                        "startColumns": "4",
+                        "startOffsets": "5663",
+                        "endColumns": "100",
+                        "endOffsets": "5759"
                     }
                 }
             ]

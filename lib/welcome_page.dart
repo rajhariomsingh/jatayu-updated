@@ -8,7 +8,7 @@ import 'package:Jatayu/Create.dart';
 import 'package:Jatayu/NfcImplement.dart';
 import 'package:Jatayu/UserProfilePage.dart';
 import 'package:Jatayu/auth_service.dart';
-import 'package:Jatayu/join.dart';
+
 
 import 'package:geolocator/geolocator.dart';
 
@@ -46,6 +46,7 @@ class _WelcomePageState extends State<WelcomePage> {
     final user = FirebaseAuth.instance.currentUser;
     if (user != null) {
       _positionStream = Geolocator.getPositionStream().listen((position) async {
+
         final collection = FirebaseFirestore.instance.collection(
             'user_locations');
         await collection.doc(user.email).update({
@@ -80,7 +81,7 @@ class _WelcomePageState extends State<WelcomePage> {
     // Register the background fetch task with a unique task ID
     BackgroundFetch.configure(
         BackgroundFetchConfig(
-            minimumFetchInterval: 0.003.toInt(), // Fetch interval in minutes
+            minimumFetchInterval: 0.001.toInt(), // Fetch interval in minutes
             stopOnTerminate: false, // Continue running after app is terminated
             enableHeadless: true, // Run task in headless mode
             requiresBatteryNotLow: false, // Don't require low battery mode
@@ -122,7 +123,7 @@ class _WelcomePageState extends State<WelcomePage> {
         startLocationUpdates();
         break;
       case AppLifecycleState.paused:
-        stopLocationUpdates();
+           startLocationUpdates();
         break;
       default:
         break;
@@ -137,8 +138,43 @@ class _WelcomePageState extends State<WelcomePage> {
     double w=MediaQuery.of(context).size.width;
     double h=MediaQuery.of(context).size.height;
     return Scaffold(
+     appBar: AppBar(
+       backgroundColor: Colors.blueGrey[900],
+       elevation: 0,
+       title: Text('Welcome - ' + FirebaseAuth.instance.currentUser!.displayName!),
+       actions: [
+         Stack(
+           children: [
+             Padding(
+               padding: EdgeInsets.only(right: w * 0.09),
+               child: InkWell(
+                 onTap: () {
+                   Navigator.push(
+                     context,
+                     MaterialPageRoute(builder: (context) => UserProfilePage()),
+                   );
+                 },
+                 child: CircleAvatar(
+                   backgroundColor: Colors.white,
+                   child: Icon(
+                     Icons.person,
+                     color: Colors.black,
+                   ),
+                 ),
+               ),
+             ),
+             Positioned(
+               top: h * 0.034,
+               right: w * 0.1,
+               child: Container(),
+             ),
+           ],
+         ),
+       ],
+     ),
 
-      backgroundColor: Colors.white,
+
+
       body:
       Container(
         decoration: BoxDecoration(
@@ -153,41 +189,10 @@ class _WelcomePageState extends State<WelcomePage> {
 
             children: [
               Container(
-                color: Colors.black,
-                width: w,
-                height: h * 0.3,
-                child: Stack(
-                  children: [
-                    Image.asset(
-                      "img/j1.gif",
-                      fit: BoxFit.cover,
-                      width: w,
-                      height: h * 0.3,
-                    ),
-                    Positioned(
-                      top: h*0.034,
-                      left: w*0.82,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => UserProfilePage(),
 
-                            ),
-                          );
-                        },
-                        child: CircleAvatar(
-                          backgroundColor: Colors.white,
-                          child: Icon(
-                            Icons.person,
-                            color: Colors.blue,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                width: w,
+                height: h * 0.01,
+
               ),
 
 

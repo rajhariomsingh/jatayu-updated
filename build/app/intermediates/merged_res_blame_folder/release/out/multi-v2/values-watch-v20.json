@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.flutterassettracer.app-mergeReleaseResources-26:/values-watch-v20/values-watch-v20.xml",
+            "outputFile": "com.example.flutterassettracer.app-mergeReleaseResources-32:/values-watch-v20/values-watch-v20.xml",
             "map": [
                 {
                     "source": "C:\\Users\\hario\\.gradle\\caches\\transforms-3\\64127e632a011292a3363bd032ddebcc\\transformed\\jetified-play-services-auth-20.4.1\\res\\values-watch-v20\\values.xml",

@@ -49,7 +49,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
 
                 Text(
-                  "Please Log In",
+                  "Please Log In Using",
                   style: TextStyle(
                     fontSize: 16,
                     color: Colors.white60,
@@ -58,93 +58,19 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(height: h*0.07,),
 
                 Container(
-                  decoration: BoxDecoration(
-                    color:Colors.white,
-                    borderRadius: BorderRadius.circular(30),
-                    boxShadow: [
-                      BoxShadow(
-                        blurRadius: 10,
-                        offset: Offset(1,1),
-                        color: Colors.grey.withOpacity(0.5),
-                      )
-                    ]
+                  height: h * 0.2,
+                  width: w * 0.5,
+                  child: Image.asset(
+                    'img/g.png',
+                    fit: BoxFit.contain,
                   ),
-                  child: TextField(
-                    decoration: InputDecoration(
-                        hintText: "Your Email ID",
-                        prefixIcon: Icon(Icons.email,color: Colors.black,),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius:BorderRadius.circular(30),
-                        borderSide: BorderSide(
-                          color: Colors.white,
-                          width: 1.0,
-                        )
-                      ),
-                        enabledBorder: OutlineInputBorder(
+                  alignment: Alignment.center,
+                )
+                ,
 
-                            borderRadius:BorderRadius.circular(30),
-                            borderSide: BorderSide(
-                              color: Colors.white,
-                              width: 1.0,
-                            )
-                        ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30)
-                      )
-                    ),
-                  ),
-                ),
-                SizedBox(height: 20,),
 
-                Container(
-                  decoration: BoxDecoration(
-                      color:Colors.white,
-                      borderRadius: BorderRadius.circular(30),
-                      boxShadow: [
-                        BoxShadow(
-                          blurRadius: 10,
-                          offset: Offset(1,1),
-                          color: Colors.grey.withOpacity(0.5),
-                        )
-                      ]
-                  ),
-                  child: TextField(
-                    decoration: InputDecoration(
-                        hintText: "Passward",
-                        prefixIcon: Icon(Icons.password,color: Colors.black,),
-                        focusedBorder: OutlineInputBorder(
-                            borderRadius:BorderRadius.circular(30),
-                            borderSide: BorderSide(
-                              color: Colors.white,
-                              width: 1.0,
-                            )
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                            borderRadius:BorderRadius.circular(30),
-                            borderSide: BorderSide(
-                              color: Colors.white,
-                              width: 1.0,
-                            )
-                        ),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30)
-                        )
-                    ),
-                  ),
-                ),
-                SizedBox(height: 20,),
-                Row(
-                  children: [
-                    Expanded(child: Container(),),
-                    Text(
-                      "Forgot Passward?",
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.blueGrey[700],
-                      ),
-                    ),
-                  ],
-                ),
+
+
 
 
               ],
@@ -184,25 +110,8 @@ class _LoginPageState extends State<LoginPage> {
             ),
 
           ),
-          SizedBox(height:w*0.1,),
-          RichText(text: TextSpan(
-            text: "Don't have an account?",
-            style: TextStyle(
-              color: Colors.grey[500],
-              fontSize: 20,
-            ),
-            children: [
-              TextSpan(
-              text: " Create",
-              style: TextStyle(
-                color: Colors.blueGrey[700],
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-                  recognizer: TapGestureRecognizer()..onTap=()=>Get.to(()=>SignUpPage())
-              )
-            ]
-          ))
+
+
         ],
       ),
 

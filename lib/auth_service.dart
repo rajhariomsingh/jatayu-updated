@@ -52,6 +52,7 @@ class AuthService{
         "email": currentUser.email,
         "name": currentUser.displayName ?? "",
         "photoUrl": currentUser.photoURL ?? "",
+        "status":"online",
       });
     }
   }

@@ -20,10 +20,11 @@ class Create extends StatefulWidget {
 }
 
 class _CreateState extends State<Create> {
+  DateTime? lastAlertTime ;
   StreamSubscription<Position>? _positionStream;
   List<Marker> markers = [];
    List<String>  addedUser = [];
-
+ int x=1;
   Position? _position;
   String userInput = '';
   String candidate='';
@@ -176,6 +177,7 @@ class _CreateState extends State<Create> {
     final mapController = MapController();
 
 
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Tracking'),
@@ -284,8 +286,19 @@ class _CreateState extends State<Create> {
                                         if (snapshot.connectionState == ConnectionState.done) {
                                           if (snapshot.hasData) {
                                             final name = snapshot.data!.get('name');
+                                            final status = snapshot.data!.get('status');
+                                            final isOnline = status == 'online'; // check if status is 'online'
                                             return Row(
                                               children: [
+                                                SizedBox(width: 10),
+                                                Container(
+                                                  width: 10,
+                                                  height: 10,
+                                                  decoration: BoxDecoration(
+                                                    color: isOnline ? Colors.green : Colors.red, // set color based on status
+                                                    borderRadius: BorderRadius.circular(5),
+                                                  ),
+                                                ),
                                                 SizedBox(width: 10),
                                                 Text(
                                                   name, // display name instead of email
@@ -315,6 +328,7 @@ class _CreateState extends State<Create> {
                                     );
                                   },
                                 ),
+
                               ),
 
 
@@ -394,29 +408,41 @@ class _CreateState extends State<Create> {
                      zoom: 14,
                      onPositionChanged: (MapPosition position, bool hasGesture) {
     // Check if any markers are outside the circle
-                     if (j > 0) {
-                     markers.forEach((marker) {
-                     if (getDistanceFromLatLonInKm(marker.point.latitude, marker.point.longitude, latitudec?? 28.675091600858153, longitudec?? 77.50238807782577) > j) {
-                     // Marker is outside the circle, show a popup
-                       showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                       return AlertDialog(
-                        title: Text('Marker outside Bandobast'),
-                        content: Text('A Candidate has moved outside the Bandobast.'),
-                        actions: [
-                        TextButton(
-                        onPressed: () => Navigator.pop(context),
-                        child: Text('OK'),
-                       ),
-                        ],
-                      );
-                    },
-                  );
-                 }
-                 });
-                  }
-                  },
+                       // Create a variable to store the time of the last alert box display.
+
+
+
+
+                       if (j > 0) {
+                         markers.forEach((marker) {
+                           if (getDistanceFromLatLonInKm(marker.point.latitude, marker.point.longitude, latitudec ?? 28.675091600858153, longitudec ?? 77.50238807782577) > j) {
+                             // Check if enough time has passed since the last alert box display.
+                             if (lastAlertTime == null || DateTime.now().difference(lastAlertTime!) > Duration(minutes: 30)) {
+                               // Marker is outside the circle and enough time has passed since the last alert box display, show a popup.
+                               showDialog(
+                                 context: context,
+                                 builder: (BuildContext context) {
+                                   return AlertDialog(
+                                     title: Text('Marker outside Bandobast'),
+                                     content: Text('A Candidate has moved outside the Bandobast.'),
+                                     actions: [
+                                       TextButton(
+                                         onPressed: () => Navigator.pop(context),
+                                         child: Text('OK'),
+                                       ),
+                                     ],
+                                   );
+                                 },
+                               );
+                               // Update the variable with the current time.
+                               lastAlertTime = DateTime.now();
+                             }
+                           }
+                         });
+                       }
+
+
+                     },
                   ),
                      nonRotatedChildren: [
                      AttributionWidget.defaultWidget(

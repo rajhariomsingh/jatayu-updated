@@ -10,6 +10,7 @@ import 'package:intl/intl.dart';
 import 'package:ndef/ndef.dart' as ndef;
 
 import 'attendencerecordscreen.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 
 class NfcImplement extends StatefulWidget {
@@ -47,7 +48,29 @@ class _NfcImplementState extends State<NfcImplement> {
     });
   }
 
-  void _startNfcListening() {
+
+  Future<void> requestBackgroundLocationPermission() async {
+    final status = await Permission.locationAlways.request();
+    if (status == PermissionStatus.denied) {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text('Location permission denied'),
+          content: Text('Please grant location permission in the app settings to use this feature.'),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: Text('OK'),
+            ),
+          ],
+        ),
+      );
+    }else if (status == PermissionStatus.granted) {
+      _hasCheckedIn =true;
+    }
+  }
+
+  void _startNfcListening() async{
     NfcManager.instance.startSession(
       onDiscovered: (NfcTag tag) async {
         try {
@@ -61,9 +84,12 @@ class _NfcImplementState extends State<NfcImplement> {
           setState(() {
             _message = payload;
             _key = payload;
-             _hasCheckedIn = true;
+
           });
+
           if (_message == verify) {
+            await requestBackgroundLocationPermission();
+            if(_hasCheckedIn==true){
             String currentDate = DateFormat('yyyy-MM-dd').format(DateTime.now());
             String uid = FirebaseAuth.instance.currentUser!.uid;
             DocumentReference attendanceRef = FirebaseFirestore.instance.collection('attendence').doc(currentDate);
@@ -105,7 +131,7 @@ class _NfcImplementState extends State<NfcImplement> {
                 });
               }
             });
-          }
+          }}
         } catch (e) {
           print(e);
         }

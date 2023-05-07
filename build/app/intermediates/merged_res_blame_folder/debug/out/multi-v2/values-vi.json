@@ -1,25 +1,8 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.flutterassettracer.app-mergeDebugResources-26:/values-vi/values-vi.xml",
+            "outputFile": "com.example.flutterassettracer.app-mergeDebugResources-32:/values-vi/values-vi.xml",
             "map": [
-                {
-                    "source": "C:\\Users\\hario\\.gradle\\caches\\transforms-3\\32a751ba0e14373defd8f9c75fa84aab\\transformed\\core-1.7.0\\res\\values-vi\\values-vi.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "52",
-                        "startColumns": "4",
-                        "startOffsets": "5564",
-                        "endColumns": "100",
-                        "endOffsets": "5660"
-                    }
-                },
                 {
                     "source": "C:\\Users\\hario\\.gradle\\caches\\transforms-3\\408206dd9b8dab6a2466e53f1796208b\\transformed\\jetified-play-services-base-18.0.1\\res\\values-vi\\values.xml",
                     "from": {
@@ -86,6 +69,23 @@
                         "startOffsets": "3814",
                         "endColumns": "127",
                         "endOffsets": "3937"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\hario\\.gradle\\caches\\transforms-3\\beb05c6d16f102e70ef856749431a27b\\transformed\\core-1.9.0\\res\\values-vi\\values-vi.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "52",
+                        "startColumns": "4",
+                        "startOffsets": "5564",
+                        "endColumns": "100",
+                        "endOffsets": "5660"
                     }
                 }
             ]

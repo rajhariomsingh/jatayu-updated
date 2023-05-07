@@ -1,3 +1,4 @@
+import 'package:Jatayu/ChatPage.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
@@ -224,10 +225,40 @@ class _AttendanceRecordScreenState extends State<AttendanceRecordScreen> {
           },
         ),
       ),
+
+
       floatingActionButton: FloatingActionButton(
-        onPressed: () => _selectDate(context),
-        child: Icon(Icons.date_range),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => ChatPage()),
+          );
+        },
+
+        backgroundColor: Colors.blueGrey[900],
+        child: Icon(Icons.chat),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+      bottomNavigationBar: BottomAppBar(
+        shape: CircularNotchedRectangle(),
+        notchMargin: 8,
+        color: Colors.blueGrey[900],
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+
+            IconButton(
+              icon: Icon(Icons.date_range),
+              onPressed: () => _selectDate(context),
+              iconSize: 40,
+
+
+              color: Colors.white,
+            ),
+          ],
+        ),
+      ),
+
     );
   }
 }

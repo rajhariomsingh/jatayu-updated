@@ -1,8 +1,25 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.flutterassettracer.app-mergeReleaseResources-26:/values-am/values-am.xml",
+            "outputFile": "com.example.flutterassettracer.app-mergeReleaseResources-32:/values-am/values-am.xml",
             "map": [
+                {
+                    "source": "C:\\Users\\hario\\.gradle\\caches\\transforms-3\\beb05c6d16f102e70ef856749431a27b\\transformed\\core-1.9.0\\res\\values-am\\values-am.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "52",
+                        "startColumns": "4",
+                        "startOffsets": "5203",
+                        "endColumns": "100",
+                        "endOffsets": "5299"
+                    }
+                },
                 {
                     "source": "C:\\Users\\hario\\.gradle\\caches\\transforms-3\\eacc524cc2d6be73e061a802198eb2e2\\transformed\\appcompat-1.4.1\\res\\values-am\\values-am.xml",
                     "from": {
@@ -52,23 +69,6 @@
                         "startOffsets": "3648",
                         "endColumns": "131",
                         "endOffsets": "3775"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\hario\\.gradle\\caches\\transforms-3\\32a751ba0e14373defd8f9c75fa84aab\\transformed\\core-1.7.0\\res\\values-am\\values-am.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "52",
-                        "startColumns": "4",
-                        "startOffsets": "5203",
-                        "endColumns": "100",
-                        "endOffsets": "5299"
                     }
                 },
                 {
