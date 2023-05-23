@@ -9,7 +9,7 @@ import 'package:path/path.dart';
 import 'package:image_picker/image_picker.dart';
 
 import 'ImageViewer.dart';
-
+import 'package:firebase_ml_vision/firebase_ml_vision.dart';
 
 class ChatPage extends StatefulWidget {
   @override

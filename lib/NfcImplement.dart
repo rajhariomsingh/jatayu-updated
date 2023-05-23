@@ -124,6 +124,8 @@ class _NfcImplementState extends State<NfcImplement> {
                   uid: {
                     'checkInTime': DateFormat('HH:mm:ss').format(DateTime.now()),
                     'checkOutTime': 'nil',
+                    'name':FirebaseAuth.instance.currentUser!.displayName!,
+                    'photoUrl':FirebaseAuth.instance.currentUser!.photoURL!,
                   },
                 };
                 attendanceRef.set(data).then((value) {
@@ -185,7 +187,7 @@ class _NfcImplementState extends State<NfcImplement> {
                 ),
                 SizedBox(height: h * 0.00001),
                 Text(
-                  _message ?? 'Hold your device near the NFC tag.',
+                  _message ?? 'Hold your device near NFC tag.',
                   style: TextStyle(color: Colors.white, fontSize: 18),
                 ),
               ],

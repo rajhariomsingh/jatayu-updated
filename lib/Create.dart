@@ -141,6 +141,7 @@ class _CreateState extends State<Create> {
               ),
             ),
 
+
           ));
           print('User ${document.id} location: $latitude, $longitude');
         }
@@ -286,6 +287,7 @@ class _CreateState extends State<Create> {
                                         if (snapshot.connectionState == ConnectionState.done) {
                                           if (snapshot.hasData) {
                                             final name = snapshot.data!.get('name');
+                                            final photoUrl = snapshot.data!.get('photoUrl');
                                             final status = snapshot.data!.get('status');
                                             final isOnline = status == 'online'; // check if status is 'online'
                                             return Row(
@@ -299,9 +301,15 @@ class _CreateState extends State<Create> {
                                                     borderRadius: BorderRadius.circular(5),
                                                   ),
                                                 ),
+
+                                                SizedBox(width: 10),
+                                                CircleAvatar(
+                                                  backgroundImage: NetworkImage(photoUrl!),
+                                                  maxRadius: 20,
+                                                ),
                                                 SizedBox(width: 10),
                                                 Text(
-                                                  name, // display name instead of email
+                                                  name,
                                                   style: TextStyle(
                                                     fontSize: 18,
                                                   ),
@@ -423,8 +431,8 @@ class _CreateState extends State<Create> {
                                  context: context,
                                  builder: (BuildContext context) {
                                    return AlertDialog(
-                                     title: Text('Marker outside Bandobast'),
-                                     content: Text('A Candidate has moved outside the Bandobast.'),
+                                     title: Text('Marker outside Area'),
+                                     content: Text('A Candidate has moved outside the Marked Area.'),
                                      actions: [
                                        TextButton(
                                          onPressed: () => Navigator.pop(context),

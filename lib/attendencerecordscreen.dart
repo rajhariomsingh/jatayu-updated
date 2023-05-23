@@ -4,6 +4,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+import 'package:Jatayu/ChatPage1.dart';
+
 class AttendanceRecordScreen extends StatefulWidget {
   const AttendanceRecordScreen({Key? key}) : super(key: key);
 
@@ -14,7 +16,7 @@ class AttendanceRecordScreen extends StatefulWidget {
 class _AttendanceRecordScreenState extends State<AttendanceRecordScreen> {
   late DateTime selectedDate;
   late String uid;
-
+  int chatid=0;
   @override
   void initState() {
     super.initState();
@@ -229,10 +231,43 @@ class _AttendanceRecordScreenState extends State<AttendanceRecordScreen> {
 
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => ChatPage()),
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: Text("Enter ChatID"),
+                content: TextField(
+                  keyboardType: TextInputType.number,
+                  onChanged: (value) {
+                    chatid = int.parse(value); // Store the user input as an integer in j
+                  },
+                ),
+                actions: <Widget>[
+                  TextButton(
+                    child: Text('OK'),
+                    onPressed: () {
+                      if(chatid==9953) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => ChatPage()),
+                        );
+                      }
+                      else if(chatid==1) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => ChatPage1()),
+                        );
+                      }
+                      else{
+                        Navigator.of(context).pop();
+                      }
+                    },
+                  ),
+                ],
+              );
+            },
           );
+
         },
 
         backgroundColor: Colors.blueGrey[900],
